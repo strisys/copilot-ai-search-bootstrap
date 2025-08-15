@@ -48,7 +48,7 @@ Unlike the default OneDrive setup, the mentioned indexers can be triggered on de
 
 ### Part II - Copilot Studio
 
-This guide assumes you’re already familiar with the basics of creating an agent in Copilot Studio. Most agent settings are straightforward — here’s what we’re using for this project:
+This guide assumes you’re already familiar with the basics of creating an agent in [Copilot Studio](https://copilotstudio.microsoft.com/). Most agent settings are straightforward — here’s what we’re using for this project:
 
 | Setting                      | Value                                                        |
 | ---------------------------- | ------------------------------------------------------------ |
