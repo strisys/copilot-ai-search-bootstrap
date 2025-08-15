@@ -1,0 +1,6 @@
+tabulate
+azure-core==1.35.0
+azure-identity==1.24.0
+azure-mgmt-core==1.6.0
+azure-mgmt-search==9.2.0
+azure-search-documents==11.5.3

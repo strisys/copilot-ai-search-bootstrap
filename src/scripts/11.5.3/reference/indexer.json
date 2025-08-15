@@ -1,0 +1,30 @@
+{
+  "@odata.context": "https://strisys-aisearch-aisearch.search.windows.net/$metadata#indexers/$entity",
+  "@odata.etag": "\"0x8DDDB40C69A025B\"",
+  "name": "rag-1755182269145-indexer",
+  "description": null,
+  "dataSourceName": "rag-1755182269145-datasource",
+  "skillsetName": "rag-1755182269145-skillset",
+  "targetIndexName": "rag-1755182269145",
+  "disabled": null,
+  "schedule": null,
+  "parameters": {
+    "batchSize": null,
+    "maxFailedItems": null,
+    "maxFailedItemsPerBatch": null,
+    "configuration": {
+      "dataToExtract": "contentAndMetadata",
+      "parsingMode": "default"
+    }
+  },
+  "fieldMappings": [
+    {
+      "sourceFieldName": "metadata_storage_name",
+      "targetFieldName": "title",
+      "mappingFunction": null
+    }
+  ],
+  "outputFieldMappings": [],
+  "cache": null,
+  "encryptionKey": null
+}

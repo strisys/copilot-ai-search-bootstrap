@@ -1,0 +1,27 @@
+{
+  "files.exclude": {
+      "**/.gitignore": true,
+      "**/ReadMe.md": true,
+      "**/**/.terraform": true,
+      "**/*.tfstate": true,
+      "**/**/*.lock.hcl": false,
+      "**/*.tfstate.backup": true,
+      "**/*.github": true,
+      "**/*.getattributes": true,
+      "**/Dockerfile": false,
+      "**/.vscode/launch.json": true,
+      "**/.devcontainer": false,
+      "**/terraform.tfstate.*.backup": true,
+      "**/.terraform.lock.hcl": true,
+      "**/.devcontainer/*.ps1": true,
+      "**/scripts": false
+  },
+  "editor.tabSize": 3,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "[python]": {
+    "editor.tabSize": 3,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  }
+}

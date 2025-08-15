@@ -1,0 +1,101 @@
+{
+   "name": "Python Development",
+   "build": {
+      "dockerfile": "../Dockerfile",
+      "context": "..",
+      "args": {
+         "BUILD_CONTEXT": "local",
+         "IS_AUTH_ENABLED": "false"
+      }
+   },
+   "features": {
+      "ghcr.io/devcontainers/features/common-utils:2": {},
+      "ghcr.io/devcontainers/features/git:latest": {},
+      "ghcr.io/devcontainers/features/docker-in-docker:latest": {},
+      "ghcr.io/devcontainers/features/powershell:latest": {},
+      "ghcr.io/devcontainers/features/azure-cli:latest": {},
+      "ghcr.io/devcontainers/features/terraform:1.4.0": {}
+   },
+   "customizations": {
+      "vscode": {
+         "extensions": [
+            "ms-python.python",
+            "ms-python.vscode-pylance",
+            "ms-toolsai.jupyter",
+            "ms-toolsai.datawrangler",
+            "ms-python.black-formatter",
+            "ms-azuretools.vscode-containers",
+            "njpwerner.autodocstring",
+            "streetsidesoftware.code-spell-checker",
+            "eamodio.gitlens",
+            "ms-vscode.powershell",
+            "ms-vscode.azurecli",
+            "gruntfuggly.todo-tree",
+            "visualstudioexptteam.vscodeintellicode",
+            "github.copilot",
+            "ryanluker.vscode-coverage-gutters",
+            "mhutchie.git-graph",
+            "ms-toolsai.prompty",
+            "hashicorp.terraform",
+            "redhat.vscode-yaml"
+         ],
+         "settings": {
+            "python.defaultInterpreterPath": "/usr/local/bin/python",
+            "python.linting.enabled": false,
+            "python.linting.flake8Enabled": false,
+            "python.linting.flake8Args": [
+               "--ignore=E128,E123,E125,E126,E501",
+               "--max-line-length=150"
+            ],
+            "python.formatting.provider": "black",
+            "python.formatting.blackPath": "/usr/local/bin/black",
+            "editor.formatOnSave": false,
+            "editor.formatOnPaste": false,
+            "editor.formatOnType": false,
+            "python.formatting.blackArgs": [
+               "--line-length=150"
+            ],
+            "editor.rulers": [
+               150
+            ],
+            "editor.codeActionsOnSave": {
+               "source.organizeImports": "never"
+            },
+            "editor.tabSize": 3,
+            "editor.insertSpaces": true,
+            "[python]": {
+               "editor.tabSize": 3,
+               "editor.insertSpaces": true,
+               "editor.defaultFormatter": "ms-python.black-formatter",
+               "editor.formatOnSave": false,
+               "editor.codeActionsOnSave": {
+                  "source.organizeImports": "explicit"
+               }
+            },
+            "terminal.integrated.defaultProfile.linux": "bash",
+            "terminal.integrated.profiles.linux": {
+               "pwsh": {
+                  "path": "pwsh",
+                  "icon": "terminal-powershell"
+               },
+               "bash": {
+                  "path": "bash",
+                  "icon": "terminal-bash"
+               }
+            },
+            "python.terminal.activateEnvironment": true,
+            "terminal.integrated.env.linux": {
+               "PYTHONIOENCODING": "utf-8",
+               "PYTHONPATH": "${localWorkspaceFolder}/scripts"
+            }
+         }
+      }
+   },
+   "forwardPorts": [3000, 8080],
+   "remoteUser": "vscode",
+   "postCreateCommand": "pwsh -File ./.devcontainer/command-alias.ps1",
+   "postStartCommand": "pwsh -File ./.devcontainer/az-login.ps1",
+   "mounts": [
+      "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached"
+   ]
+}
