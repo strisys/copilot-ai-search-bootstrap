@@ -1,19 +1,17 @@
 # Document Chat with Copilot Studio backed by Azure AI Search
 ### Background
 
-While Copilot Studio can use a OneDrive folder as a knowledge source, the timing of data refreshes from that folder is unpredictable. This project replicates — and improves on — the Azure resources that Copilot Studio likely uses behind the scenes in that scenario.
-
-The goal is to give you full control over both **when** indexing happens (chunking and vectorization) and **how well** it’s performed.
+While Copilot Studio can use a OneDrive folder as a knowledge source, the timing of data refreshes is unpredictable. This project replicates — and improves on — the Azure resources that Copilot Studio likely uses behind the scenes in that scenario.  The goal is to give you full control over both **when** indexing happens (chunking and vectorization) and **how well** it’s performed.
 
 **Approach**
 
 The project uses VS Code Dev Containers to provide a ready-to-use environment where Terraform provisions:
 
-- **Azure AI Search** resources
+- **Azure AI Search** resources with indexes and indexers to chunk and vectorize files
 - A **storage account** for document storage
-- **Indexers** to chunk and vectorize files
+- **Azure OpenAI** used for embeddings.
 
-Unlike the default OneDrive setup, these indexers can be triggered on demand whenever files change, ensuring timely and consistent updates to your search index.
+Unlike the default OneDrive setup, the mentioned indexers can be triggered on demand whenever files change, ensuring timely and consistent updates to your search index.
 
 ### Part 1 - Azure Setup 
 
@@ -40,6 +38,13 @@ Unlike the default OneDrive setup, these indexers can be triggered on demand whe
 4. **Run the Indexer**
 
    1. After uploading files, manually trigger the Azure AI Search indexer to process the new or changed documents.
+   
+      ```bash
+      az search indexer run \
+        --name hoisington-indexer \
+        --service-name <search-service-name> \
+        --resource-group <resource-group-name>
+      ```
 
 ### Part II - Copilot Studio
 
