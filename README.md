@@ -17,8 +17,8 @@ Unlike the default OneDrive setup, the mentioned indexers can be triggered on de
 
 1. **Configure Variables**
 
-   - In the src directory, rename terraform.tfvars.sample to terraform.tfvars.
-   - Open terraform.tfvars and update the input variables as needed (organization, project, subscription, tenant).
+   - In the src directory, copy the terraform.tfvars.sample and rename the copy to **terraform.tfvars**.
+   - Open **terraform.tfvars** and update the input variables as needed (organization, project, subscription, tenant).
 
 2. **Run Terraform Commands**
 
@@ -41,8 +41,9 @@ Unlike the default OneDrive setup, the mentioned indexers can be triggered on de
 
 4. **Run the Indexer**
 
-   1. After uploading files, manually trigger the Azure AI Search indexer to process the new or changed documents using the REST command from Step 1.  
-   2. Navigate to the index blade of the search service resource to ensure the indexer ran successfully.
+   - After uploading files, manually trigger the Azure AI Search indexer to process the new or changed documents using the REST command from Step 1.  
+
+   - Navigate to the index blade of the search service resource to ensure the indexer ran successfully.
 
 ### Part II - Copilot Studio
 
