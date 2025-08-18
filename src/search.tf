@@ -315,24 +315,12 @@ resource "null_resource" "search_indexers" {
   ]
 }
 
-# # Output the skillset information
-# output "search_skillsets" {
-#   value = {
-#     for k, v in null_resource.search_skillsets : k => {
-#       name          = local.skillset_config[k].name
-#       index_name    = local.skillset_config[k].index_name
-#       triggers_hash = v.triggers.combined_hash
-#     }
-#   }
-# }
-
-# # Output the datasource information
-# output "search_datasources" {
-#   value = {
-#     for k, v in null_resource.search_datasources : k => {
-#       name           = local.datasource_config[k].name
-#       container_name = local.datasource_config[k].container_name
-#       triggers_hash  = v.triggers.combined_hash
-#     }
-#   }
-# }
+output "run_indexers_az_rest" {
+  description = "az rest commands to run each indexer (uses admin key; no AAD token)"
+  value = nonsensitive(
+    join("\n", [
+      for _, cfg in local.indexer_config :
+      "az rest --method post --url https://${cfg.search_service_name}.search.windows.net/indexers/${cfg.name}/run?api-version=2024-07-01 --headers \"api-key=${azurerm_search_service.search.primary_key}\" --skip-authorization-header --body \"\""
+    ])
+  )
+}
