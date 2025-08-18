@@ -1,0 +1,5 @@
+{
+  "name": "project",
+  "extends": "./src/.devcontainer/devcontainer.json",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/src"
+}
