@@ -63,7 +63,10 @@ WORKDIR /app
 ENV PYTHONPATH="/app/scripts"
 
 COPY ./scripts/11.5.3/requirements.txt ./scripts/11.5.3/
+COPY ./playground/requirements.txt ./playground/
+
 RUN pip install --no-cache-dir -r ./scripts/11.5.3/requirements.txt
+RUN pip install --no-cache-dir -r ./playground/requirements.txt
 
 COPY ./ ./
 

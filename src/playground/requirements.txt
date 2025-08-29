@@ -1,0 +1,14 @@
+tabulate
+python-dotenv
+
+openai
+
+langchain 
+langchain-text-splitters 
+langchain-openai
+langchain-community
+
+# manually indexing dependencies
+pypdf
+python-docx
+beautifulsoup4
