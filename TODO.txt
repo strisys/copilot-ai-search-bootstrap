@@ -1,0 +1,6 @@
+Attempt to deprecate python scripts using azapi and direct HCL object syntax.
+https://chatgpt.com/c/68a498a0-ac48-8323-b9a3-f6215bb0fae3
+
+add monitoring
+ChatGPT: "how to see that queries are being submitted to Azure AI Search"
+need resources like log analytics to see the queries that are being submitted.
