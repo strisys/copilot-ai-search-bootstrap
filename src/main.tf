@@ -11,7 +11,7 @@ locals {
 
   container_names = [
     "hoisington",
-    "taxes",
+    "docsearch",
   ]
 
   openai_account_name     = "${local.organization}-${local.project_tag}-aisearch"

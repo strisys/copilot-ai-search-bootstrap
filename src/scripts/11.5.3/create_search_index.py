@@ -82,6 +82,18 @@ def create_search_index_definition():
          key=False
       )
 
+      meta_data = SearchField(
+         name="meta_data",
+         type=SearchFieldDataType.String,
+         searchable=True,
+         retrievable=True,
+         filterable=False,
+         sortable=False, 
+         facetable=False,
+         stored=True,
+         key=False
+      )
+
       text_vector = SearchField(
          name="text_vector",
          type=SearchFieldDataType.Collection(SearchFieldDataType.Single),
@@ -95,7 +107,7 @@ def create_search_index_definition():
          vector_search_profile_name=profile_name
       )
 
-      return [chunk_id_field, parent_id, chunk, title, text_vector]
+      return [chunk_id_field, parent_id, chunk, title, meta_data, text_vector]
      
    try:
       algorithm_config = HnswAlgorithmConfiguration(

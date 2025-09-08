@@ -182,3 +182,5 @@ def upload_directory(root_dir: str, max_chars: int = 1200, overlap: int = 200, u
 
    for d, v in zip(docs, vectors):
       d["text_vector"] = v
+
+   upload_docs(docs, upload_batch=upload_batch)
