@@ -154,7 +154,10 @@ def create_search_index_definition():
                prioritized_fields=SemanticPrioritizedFields(
                   title_field=SemanticField(field_name="title"),
                   content_fields=[
-                        SemanticField(field_name="chunk")
+                     SemanticField(field_name="chunk")
+                  ],
+                  keywords_fields=[
+                      SemanticField(field_name="meta_data")
                   ]
                )
             )

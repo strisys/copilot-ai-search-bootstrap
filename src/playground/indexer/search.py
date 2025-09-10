@@ -11,7 +11,7 @@ from azure.search.documents.indexes.models import SearchIndex
 from reader import read, is_supported
 from splitter import split
 from vectorizer import vectorize_in_batch
-from config_loader import load_config
+from shared.config_loader import load_config
 
 config = load_config()
 

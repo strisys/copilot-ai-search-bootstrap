@@ -1,15 +1,17 @@
-# pip install python-dotenv
 import os
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
 
 REQUIRED_VARS = [
-    "AZURE_SEARCH_ENDPOINT",
-    "AZURE_SEARCH_API_KEY",
-    "AZURE_OPENAI_ENDPOINT",
-    "AZURE_OPENAI_API_KEY",
-    "AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT",
+   "AZURE_SEARCH_ENDPOINT",
+   "AZURE_SEARCH_API_KEY",
+   "AZURE_OPENAI_ENDPOINT",
+   "AZURE_OPENAI_API_KEY",
+   "AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT",
 ]
+
+BASE_DIR = Path(__file__).resolve().parent
+dotenv_path = BASE_DIR / ".env"
 
 config = {}
 
@@ -27,9 +29,9 @@ def load_config(env_file: str | None = None) -> dict:
       
       load_dotenv(dotenv_path=env_path, override=False)
    
-    
    if (not env_file):
-      load_dotenv(find_dotenv(usecwd=True), override=False)
+      print(f"Loading .env from current working directory {dotenv_path}")
+      load_dotenv(dotenv_path, override=False)
 
    # Validate required variables
    missing = [k for k in REQUIRED_VARS if not os.getenv(k)]

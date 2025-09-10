@@ -1,0 +1,10 @@
+{
+   "servers": {
+      "azure-search": {
+         "type": "stdio",
+         "command": "python",
+         "cwd": "${workspaceFolder}",
+         "args": ["playground/mcp/server.py"]
+      }
+   }
+}

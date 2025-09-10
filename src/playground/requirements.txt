@@ -12,3 +12,7 @@ langchain-community
 pypdf
 python-docx
 beautifulsoup4
+
+fastapi
+uvicorn[standard]
+fastmcp

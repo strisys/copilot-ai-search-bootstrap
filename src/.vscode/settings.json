@@ -9,7 +9,7 @@
       "**/*.github": true,
       "**/*.getattributes": true,
       "**/Dockerfile": false,
-      "**/.vscode/launch.json": true,
+      "**/.vscode/launch.json": false,
       "**/.devcontainer": false,
       "**/terraform.tfstate.*.backup": true,
       "**/.terraform.lock.hcl": true,

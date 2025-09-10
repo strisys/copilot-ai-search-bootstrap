@@ -2,13 +2,25 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Indexer: Launch main.py",
+      "name": "Indexer",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/playground/indexer/main.py",
       "args": ["${workspaceFolder}/artifacts/hoisington"],
       "cwd": "${workspaceFolder}/playground/indexer",
       "envFile": "${workspaceFolder}/playground/indexer/.env",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "subProcess": true
+    },
+   {
+      "name": "Query Samples",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/playground/query_samples/main.py",
+      "args": [],
+      "cwd": "${workspaceFolder}/playground/query_samples",
+      "envFile": "${workspaceFolder}/playground/query_samples/.env",
       "console": "integratedTerminal",
       "justMyCode": false,
       "subProcess": true

@@ -29,9 +29,11 @@ def vectorize_in_batch(chunks: List[str], batch_size: int = 30) -> List[List[flo
       for _ in range(max_retries):
          try:
             print(f'vectorizing batch (#{i}). {len(chunks)} total ...')
-            vectors.extend(embedder.embed_documents(batch) ) 
+            vectors.extend(embedder.embed_documents(batch)) 
 
-            print(f'vectors created ... pausing ({pause} seconds) to avoid rate limit ...')
+            print(f'{len(chunks)} vector arrays created of dimension {len(vectors[-1])})')
+            print('pausing ({pause} seconds) to avoid rate limit ...')
+            
             time.sleep(pause) 
 
             break
