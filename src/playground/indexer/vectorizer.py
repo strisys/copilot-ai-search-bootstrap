@@ -2,7 +2,7 @@ import os, time
 from typing import List
 from langchain_openai import AzureOpenAIEmbeddings
 from openai import RateLimitError
-from config_loader import load_config
+from shared.config_loader import load_config
 
 config = load_config()
 
