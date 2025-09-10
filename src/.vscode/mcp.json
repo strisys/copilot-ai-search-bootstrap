@@ -4,7 +4,7 @@
          "type": "stdio",
          "command": "python",
          "cwd": "${workspaceFolder}",
-         "args": ["playground/mcp/server.py"]
+         "args": ["playground/python/mcp/server.py"]
       }
    }
 }
