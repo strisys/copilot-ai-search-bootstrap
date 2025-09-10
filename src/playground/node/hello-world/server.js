@@ -14,11 +14,11 @@ server.registerTool(
   "hello",
   {
     title: "Hello Tool",
-    description: "Say hello with a custom value",
-    inputSchema: { value: z.string().describe("Text to include in the greeting") }
+    description: 'Pass this verbatim; do not add punctuation or prefixes',
+    inputSchema: { text: z.string().describe("Text to include in the greeting") }
   },
-  async ({ value }) => ({
-    content: [{ type: "text", text: `Hello from MCP server 👋 ${value}` }]
+  async ({ text }) => ({
+    content: [{ type: "text", text: `Hello from MCP server 👋 ${text}` }]
   })
 );
 
