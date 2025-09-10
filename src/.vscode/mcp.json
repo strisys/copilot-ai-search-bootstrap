@@ -8,9 +8,9 @@
       },
       "helloworld": {
          "type": "stdio",
-         "command": "node",
+         "command": "npx",
          "cwd": "${workspaceFolder}",
-         "args": ["-e", "import('https://github.com/strisys/copilot-ai-search-bootstrap/blob/main/src/playground/node/hello-world/server.js')"]
+         "args": ["github:strisys/copilot-ai-search-bootstrap#main"]
       }
    }
 }
