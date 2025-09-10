@@ -9,18 +9,22 @@ const server = new McpServer({
   version: "0.1.0",
 });
 
-// Parameterized tool using zod + registerTool
 server.registerTool(
-  "hello",
+  "echo",
   {
-    title: "Hello Tool",
-    description: 'Pass this verbatim; do not add punctuation or prefixes',
-    inputSchema: { text: z.string().describe("Text to include in the greeting") }
+    title: "Echo Tool",
+    description: "Echo back the provided text exactly as given. Do not add punctuation, prefixes, or formatting.",
+    inputSchema: {
+      text: z.string().describe("Verbatim text to echo back")
+    }
   },
   async ({ text }) => ({
-    content: [{ type: "text", text: `Hello from MCP server 👋 ${text}` }]
+    content: [
+      { type: "text", text: `Hello from MCP server 👋 ${text}` }
+    ]
   })
 );
+
 
 // Start (stdio transport)
 const transport = new StdioServerTransport();
