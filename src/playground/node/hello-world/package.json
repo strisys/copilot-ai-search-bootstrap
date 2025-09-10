@@ -1,0 +1,11 @@
+{
+  "name": "hello-mcp",
+  "version": "0.1.0",
+  "bin": {
+    "hello-world": "./server.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.3.0"
+  }
+}

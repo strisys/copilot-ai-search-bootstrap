@@ -6,11 +6,11 @@
          "cwd": "${workspaceFolder}",
          "args": ["playground/python/mcp/server.py"]
       },
-      "hello-world": {
+      "helloworld": {
          "type": "stdio",
          "command": "node",
          "cwd": "${workspaceFolder}",
-         "args": ["-e", "import('https://example.com/script.js')"]
+         "args": ["-e", "import('https://github.com/strisys/copilot-ai-search-bootstrap/blob/main/src/playground/node/hello-world/server.js')"]
       }
    }
 }
