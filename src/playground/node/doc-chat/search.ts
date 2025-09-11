@@ -11,7 +11,7 @@ let searchClient: any;
 let openaiClient: any;
 
 const getSearchClient = () => {
-   if (!searchClient) {
+   if (searchClient) {
       return searchClient
    }
 
@@ -23,13 +23,19 @@ const getSearchClient = () => {
 };
 
 const getOpenAIClient = () => {
-   if (!openaiClient) {
+   if (openaiClient) {
       return openaiClient
    }
 
+   const endpoint = config.AZURE_OPENAI_ENDPOINT;
+
+   const baseURL = endpoint.endsWith('/') 
+      ? `${endpoint}openai/v1/`
+      : `${endpoint}/openai/v1/`;
+
    return (openaiClient = new OpenAI({
       apiKey: config.AZURE_OPENAI_API_KEY,
-      baseURL: config.AZURE_OPENAI_ENDPOINT,
+      baseURL: baseURL,
    }));
 };
 
@@ -41,10 +47,12 @@ type SearchDoc = {
 };
 
 async function getEmbedding(text: string): Promise<number[]> {
-   const resp = await getOpenAIClient().embeddings.create({
+   const client = getOpenAIClient();
+
+   const resp = (await client.embeddings.create({
       input: text,
       model: config.AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT,
-   });
+   }));
 
    return resp.data[0].embedding;
 }
@@ -75,7 +83,7 @@ export async function run(searchQuery: string, titlesOnly = false, topN = 100): 
 
    for await (const doc of resultsIter.results) {
       const document = doc.document as any;
-      const rerank = document["@search.rerankerScore"] ?? document["@search.reranker_score"];
+      const rerank = doc["rerankerScore"];
 
       if (typeof rerank !== "number" || rerank < 1) {
          continue
