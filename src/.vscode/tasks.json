@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "build",
+      "path": "playground/node/doc-chat",
+      "label": "npm: build (doc-chat)",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}

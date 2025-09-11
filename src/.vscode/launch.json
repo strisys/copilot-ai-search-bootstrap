@@ -1,29 +1,76 @@
 {
   "version": "0.2.0",
   "configurations": [
-    {
-      "name": "Indexer",
-      "type": "debugpy",
-      "request": "launch",
-      "program": "${workspaceFolder}/playground/python/indexer/main.py",
-      "args": ["${workspaceFolder}/artifacts/hoisington"],
-      "cwd": "${workspaceFolder}/playground/python/indexer",
-      "envFile": "${workspaceFolder}/playground/python/indexer/.env",
-      "console": "integratedTerminal",
-      "justMyCode": false,
-      "subProcess": true
-    },
-   {
-      "name": "Query Samples",
-      "type": "debugpy",
-      "request": "launch",
-      "program": "${workspaceFolder}/playground/python/query_samples/main.py",
-      "args": [],
-      "cwd": "${workspaceFolder}/playground/python/query_samples",
-      "envFile": "${workspaceFolder}/playground/python/query_samples/.env",
-      "console": "integratedTerminal",
-      "justMyCode": false,
-      "subProcess": true
-    }
+      {
+         "name": "Indexer",
+         "type": "debugpy",
+         "request": "launch",
+         "program": "${workspaceFolder}/playground/python/indexer/main.py",
+         "args": ["${workspaceFolder}/artifacts/hoisington"],
+         "cwd": "${workspaceFolder}/playground/python/indexer",
+         "envFile": "${workspaceFolder}/playground/python/indexer/.env",
+         "console": "integratedTerminal",
+         "justMyCode": false,
+         "subProcess": true
+      },
+      {
+         "name": "Query Samples",
+         "type": "debugpy",
+         "request": "launch",
+         "program": "${workspaceFolder}/playground/python/query_samples/main.py",
+         "args": [],
+         "cwd": "${workspaceFolder}/playground/python/query_samples",
+         "envFile": "${workspaceFolder}/playground/python/query_samples/.env",
+         "console": "integratedTerminal",
+         "justMyCode": false,
+         "subProcess": true
+      },
+      {
+         "type": "node",
+         "request": "launch",
+         "name": "Mocha (JS)",
+         "preLaunchTask": "npm: build (doc-chat)",
+         "program": "${workspaceFolder}/playground/node/doc-chat/node_modules/mocha/bin/_mocha",
+         "args": [
+            "-u",
+            "bdd",
+            "--timeout",
+            "999999",
+            "--colors",
+            "--recursive",
+            "${workspaceFolder}/playground/node/doc-chat/dist/test/**/*.spec.js"
+         ],
+         "internalConsoleOptions": "openOnSessionStart",
+         "resolveSourceMapLocations": [
+            "${workspaceFolder}/playground/node/doc-chat/dist/**",
+            "!**/node_modules/**"
+         ],
+      },
+      {
+         "type": "node",
+         "request": "launch",
+         "name": "Mocha (TS)",
+         "program": "${workspaceFolder}/playground/node/doc-chat/node_modules/mocha/bin/_mocha",
+         "runtimeArgs": [
+            "--loader", "ts-node/esm",
+            "--experimental-specifier-resolution=node"
+         ],
+         "args": [
+            "--require",
+            "ts-node/register",
+            "-u",
+            "bdd",
+            "--timeout",
+            "999999",
+            "--colors",
+            "--recursive",
+            "${workspaceFolder}/playground/node/doc-chat/test/**/*.spec.ts"
+         ],
+         "internalConsoleOptions": "openOnSessionStart",
+         "resolveSourceMapLocations": [
+            "${workspaceFolder}/playground/node/doc-chat/dist/**",
+            "!**/node_modules/**"
+         ],
+      },
   ]
 }
