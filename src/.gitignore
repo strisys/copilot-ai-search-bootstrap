@@ -6,6 +6,9 @@
 *.tfstate.*
 *.tfplan
 
+node_modules/
+dist/
+
 # Crash log files
 crash.log
 crash.*.log

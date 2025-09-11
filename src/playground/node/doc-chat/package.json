@@ -1,0 +1,38 @@
+{
+   "name": "doc-chat",
+   "version": "0.1.0",
+   "type": "module",
+   "private": true,
+   "scripts": {
+      "build": "tsc",
+      "server:run": "node dist/server.js",
+      "inspect:run:old": "cross-env HOST=0.0.0.0 ALLOWED_ORIGINS=http://localhost:7000 CLIENT_PORT=7000 SERVER_PORT=6277 npx @modelcontextprotocol/inspector --config mcp.json",
+      "inspect:run:local": "tsx scripts/run-inspector.ts --server=local",
+      "inspect:run:supabase": "tsx scripts/run-inspector.ts --server=supabase",
+      "inspect:start": "npm-run-all build inspect:run:local",
+      "dev": "npm-run-all build start",
+      "start": "node dist/client.js"
+   },
+   "dependencies": {
+      "@inquirer/prompts": "~7.8.4",
+      "@modelcontextprotocol/sdk": "~1.17.4",
+      "@azure/search-documents": "~12.1.0",
+      "@azure/openai": "^2.0.0",
+      "@azure/core-auth": "~1.10.0",
+      "@azure/identity": "~4.12.0",
+      "@types/node": "^24.3.1",
+      "dotenv": "~17.2.2",
+      "express": "^4.21.1",
+      "openai": "^4.104.0",
+      "zod": "~3.25.0",
+      "zod-to-json-schema": "^3.23.5"
+   },
+   "devDependencies": {
+      "@types/express": "^5.0.0",
+      "@modelcontextprotocol/inspector": "~0.16.5",
+      "cross-env": "~10.0.0",
+      "npm-run-all": "~4.1.5",
+      "tsx": "~4.20.5",
+      "typescript": "^5.6.2"
+   }
+}

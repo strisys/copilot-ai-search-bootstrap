@@ -26,6 +26,5 @@ server.registerTool(
 );
 
 
-// Start (stdio transport)
 const transport = new StdioServerTransport();
 await server.connect(transport);
