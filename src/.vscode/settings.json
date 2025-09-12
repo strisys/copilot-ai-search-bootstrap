@@ -16,6 +16,7 @@
       "**/.devcontainer/*.ps1": true,
       "**/scripts": false,
       "**/artifacts/**": true,
+      "**/*/dist": false,
   },
   "editor.tabSize": 3,
   "editor.insertSpaces": true,

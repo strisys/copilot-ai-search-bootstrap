@@ -38,7 +38,7 @@ def create_search_index_definition():
    algorithm_name = f"{index_name}-algorithm"
    vectorizer_name = f"{index_name}-azureOpenAi-text-vectorizer"
    profile_name = f"{index_name}-azureOpenAi-text-profile"
-   semantic_config_name = f"{index_name}-semantic-configuration"  
+   semantic_config_name = f"default"
      
    def create_fields():
       chunk_id_field = SearchField(

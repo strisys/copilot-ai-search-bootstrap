@@ -81,6 +81,13 @@ resource "azurerm_key_vault_secret" "azure_openai_embeddings_deployment" {
   key_vault_id = azurerm_key_vault.app_kv.id
 }
 
+resource "azurerm_key_vault_secret" "azure_openai_embeddings_deployment" {
+  provider     = azurerm.azure-default
+  name         = "AZURE-SEMANTIC-SEARCH-CONFIGURATION"
+  value        = "default"
+  key_vault_id = azurerm_key_vault.app_kv.id
+}
+
 resource "azurerm_key_vault_secret" "azure_openai_api_version" {
   provider     = azurerm.azure-default
   name         = "AZURE-OPENAI-API-VERSION"
