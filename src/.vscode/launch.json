@@ -38,11 +38,11 @@
             "999999",
             "--colors",
             "--recursive",
-            "${workspaceFolder}/playground/node/doc-chat/dist/test/**/*.spec.js"
+            "${workspaceFolder}/playground/node/doc-chat/bin/test/**/*.spec.js"
          ],
          "internalConsoleOptions": "openOnSessionStart",
          "resolveSourceMapLocations": [
-            "${workspaceFolder}/playground/node/doc-chat/dist/**",
+            "${workspaceFolder}/playground/node/doc-chat/bin/**",
             "!**/node_modules/**"
          ],
       },
@@ -68,7 +68,7 @@
          ],
          "internalConsoleOptions": "openOnSessionStart",
          "resolveSourceMapLocations": [
-            "${workspaceFolder}/playground/node/doc-chat/dist/**",
+            "${workspaceFolder}/playground/node/doc-chat/bin/**",
             "!**/node_modules/**"
          ],
       },

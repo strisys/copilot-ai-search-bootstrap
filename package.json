@@ -2,7 +2,7 @@
    "name": "doc-chat",
    "version": "0.1.0",
    "bin": {
-    "doc-chat": "./src/playground/node/doc-chat/dist/server.js"
+    "doc-chat": "./src/playground/node/doc-chat/bin/server.js"
    },
    "type": "module",
    "private": true,
