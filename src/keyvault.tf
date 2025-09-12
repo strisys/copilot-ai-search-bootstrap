@@ -60,6 +60,14 @@ resource "azurerm_key_vault_secret" "azure_search_index" {
   key_vault_id = azurerm_key_vault.app_kv.id
 }
 
+resource "azurerm_key_vault_secret" "azure_search_semantic_configuration" {
+  provider     = azurerm.azure-default
+  name         = "AZURE-SEARCH-SEMANTIC-SEARCH-CONFIGURATION"
+  value        = "default"
+  key_vault_id = azurerm_key_vault.app_kv.id
+}
+
+
 resource "azurerm_key_vault_secret" "azure_openai_endpoint" {
   provider     = azurerm.azure-default
   name         = "AZURE-OPENAI-ENDPOINT"
@@ -78,13 +86,6 @@ resource "azurerm_key_vault_secret" "azure_openai_embeddings_deployment" {
   provider     = azurerm.azure-default
   name         = "AZURE-OPENAI-EMBEDDINGS-DEPLOYMENT"
   value        = azurerm_cognitive_deployment.embedding.name
-  key_vault_id = azurerm_key_vault.app_kv.id
-}
-
-resource "azurerm_key_vault_secret" "azure_openai_embeddings_deployment" {
-  provider     = azurerm.azure-default
-  name         = "AZURE-SEMANTIC-SEARCH-CONFIGURATION"
-  value        = "default"
   key_vault_id = azurerm_key_vault.app_kv.id
 }
 

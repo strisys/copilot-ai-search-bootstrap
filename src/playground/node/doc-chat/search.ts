@@ -14,8 +14,6 @@ let searchClient: any;
 let openaiClient: any;
 let storeClient: any;
 
-// assuming `config`, `storeClient`, `AZURE_KEY_VAULT_NAME`, and SecretStoreFactory exist
-
 const getConfig = async (): Promise<Config> => {
   if (storeClient) {
     return config;
@@ -94,15 +92,14 @@ async function getEmbedding(text: string): Promise<number[]> {
 }
 
 export async function run(searchQuery: string, titlesOnly = false, topN = 100): Promise<string> {
-   const cfg = (await getConfig());
-   const SEMANTIC_CONFIG = `${cfg.AZURE_SEARCH_INDEX}-semantic-configuration`;
    const embeddingVector = (await getEmbedding(searchQuery));
+   const cfg = (await getConfig());
 
    const searchOptions: any = {
       searchText: searchQuery,
       queryType: "semantic",
       semanticSearchOptions: {
-         configurationName: SEMANTIC_CONFIG,
+         configurationName: cfg.AZURE_SEARCH_SEMANTIC_SEARCH_CONFIGURATION,
          queryLanguage: "en-us"
       },
       scoringStatistics: "global",
