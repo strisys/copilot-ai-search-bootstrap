@@ -10,7 +10,7 @@
          "type": "stdio",
          "command": "npx",
          "cwd": "${workspaceFolder}",
-         "args": ["github:strisys/copilot-ai-search-bootstrap#main"]
+         "args": ["-y", "-p", "github:strisys/copilot-ai-search-bootstrap#main", "doc-chat"]
       }
    }
 }
