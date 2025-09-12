@@ -1,12 +1,12 @@
 {
    "servers": {
-      "azure-search": {
+      "azure-search-py": {
          "type": "stdio",
          "command": "python",
          "cwd": "${workspaceFolder}",
          "args": ["playground/python/mcp/server.py"]
       },
-      "helloworld": {
+      "azure-search-ts": {
          "type": "stdio",
          "command": "npx",
          "cwd": "${workspaceFolder}",
