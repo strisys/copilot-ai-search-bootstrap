@@ -16,15 +16,7 @@ resource "azurerm_key_vault" "app_kv" {
   purge_protection_enabled   = true
   soft_delete_retention_days = 7
   public_network_access_enabled = true
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
-
-    secret_permissions = [
-      "Get", "List", "Set", "Delete", "Recover", "Purge"
-    ]
-  }
+  enabled_for_disk_encryption = true
 
   tags = {
     environment = var.environment
