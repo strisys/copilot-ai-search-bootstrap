@@ -1,25 +1,25 @@
 locals {
-  _target_container       = contains(local.container_names, "docsearch") ? "docsearch" : local.container_names[0]
-  search_index_name       = "${replace(local._target_container, "[^a-zA-Z0-9-_]", "-")}-index"
+  _target_container          = contains(local.container_names, "docsearch") ? "docsearch" : local.container_names[0]
+  search_index_name          = "${replace(local._target_container, "[^a-zA-Z0-9-_]", "-")}-index"
   openai_api_version_default = "2024-06-01"
   max_chars_default          = 1200
   overlap_default            = 200
 }
 
 resource "azurerm_key_vault" "app_kv" {
-  provider                   = azurerm.azure-default
-  name                       = "kv-${local.organization}-${local.project_tag}"
-  location                   = azurerm_resource_group.rg.location
-  resource_group_name        = azurerm_resource_group.rg.name
-  tenant_id                  = data.azurerm_client_config.current.tenant_id
-  sku_name                   = "standard"
-  purge_protection_enabled   = true
-  soft_delete_retention_days = 7
+  provider                      = azurerm.azure-default
+  name                          = "kv-${local.organization}-${local.project_tag}"
+  location                      = azurerm_resource_group.rg.location
+  resource_group_name           = azurerm_resource_group.rg.name
+  tenant_id                     = data.azurerm_client_config.current.tenant_id
+  sku_name                      = "standard"
+  purge_protection_enabled      = true
+  soft_delete_retention_days    = 7
   public_network_access_enabled = true
-  enabled_for_disk_encryption = true
+  enabled_for_disk_encryption   = true
 
   tags = {
-    environment = var.environment
+    environment  = var.environment
     organization = local.organization
     project      = local.project_tag
     date         = local.date_tag
